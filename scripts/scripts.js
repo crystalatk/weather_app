@@ -1,31 +1,37 @@
 'use strict'
 
-const getWeatherButton = document.querySelector('#getWeatherButton');
-getWeatherButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    const zipCode = document.querySelector('#zipCode');
-    if (zipCode.value !== "") {
-        getWeather(zipCode.value);
-    }
-    const today = document.querySelector('#today');
-    today.setAttribute('class', 'visible');
-    const locationLabel = document.querySelector('#locationLabel');
-    locationLabel.setAttribute('class', 'today');
-    const footer = document.querySelector('#footer');
-    footer.setAttribute('class', 'visible')
-    // getWeatherButton.removeAttribute('id');
-    
-    // footerButton.setAttribute('id', 'getWeatherButton');
-});
-
+function eventListener (button, selector) {
+    button.addEventListener('click', function (event) {
+        event.preventDefault();
+        const zipCode = document.querySelector(selector);
+        if (zipCode.value !== "") {
+            getWeather(zipCode.value);
+            getForecast(zipCode.value);
+        }
+    });
+}
+const getWeatherSelector = '#zipCode';
+const weatherButton = document.querySelector('#getWeatherButton');
+eventListener(weatherButton, getWeatherSelector);
+// getWeatherButton.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     const zipCode = document.querySelector('#zipCode');
+//     if (zipCode.value !== "") {
+//         getWeather(zipCode.value);
+//         getForecast(zipCode.value);
+//     }
+// });
+const getFooterSelector = '#zipCodeFooter';
 const footerButton = document.querySelector('#getWeatherButtonFooter');
-footerButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    const zipCode = document.querySelector('#zipCodeFooter');
-    if (zipCode.value !== "") {
-        getWeather(zipCode.value);
-    }
-})
+eventListener(footerButton, getFooterSelector);
+// footerButton.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     const zipCode = document.querySelector('#zipCodeFooter');
+//     if (zipCode.value !== "") {
+//         getWeather(zipCode.value);
+//         getForecast(zipCode.value);
+//     }
+// })
 
 function getWeather(zipCode) {
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=e40dbbedb9e16e2dc4ee18aa1f6da998&units=imperial`;
@@ -44,7 +50,32 @@ function getWeather(zipCode) {
         const weatherDescription = response.weather[0].description;
         const spanWeatherDescription = document.querySelector('#weatherDescription');
         spanWeatherDescription.innerHTML = weatherDescription
+        const today = document.querySelector('#today');
+        today.setAttribute('class', 'visible');
+        const locationLabel = document.querySelector('#locationLabel');
+        locationLabel.setAttribute('class', 'today');
+        const footer = document.querySelector('#footer');
+        footer.setAttribute('class', 'visible')
+    })
+    .catch(function (error) {
+        console.log(error);
     });
+}
+
+function getForecast(zipCode) {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},us&appid=e40dbbedb9e16e2dc4ee18aa1f6da998&units=imperial`;
+    get(url).then(function (response) {
+        for (let i = 0; i < 5; i++) {
+            const forecastTemp = Math.round(response.list[`${i}`].main.temp);
+            const spanForecastDay = document.querySelector(`#day${i+1}`);
+            spanForecastDay.innerHTML = forecastTemp
+            const weatherIcon = response.list[`${i}`].weather[0].icon;
+            const weatherImage = document.querySelector(`#forecastWeatherImage${i+1}`);
+            weatherImage.setAttribute('src', `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`);
+            const forecast = document.querySelector('#forecast');
+            forecast.setAttribute('class', 'visible')
+        }
+    })
 }
 
 // function getTemp(K) {

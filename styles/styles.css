@@ -87,9 +87,16 @@ button {
 }
 
 .visible {
+  background: #77a3cf;
+  border: 2px solid #61e786;
+  border-radius: 20px;
+  color: #0e1c36;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  transition: ease 0.5s;
   /* grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 10px 10px;
@@ -106,10 +113,31 @@ button {
   /* width: fit-content; */
 }
 
+.visible#forecast {
+  background: #856f60;
+  border: 1px solid #0e1c36;
+  border-radius: 20px;
+  color: #0e1c36;
+  display: block;
+  margin: 10px;
+}
+
+.visible #icons {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 3fr));
+  margin: 3px;
+  padding: 10px;
+}
+
 #footer {
+  background-color: #0e1c36;
+  border: #0e1c36;
+  color: #ddbda6;
   text-align: center;
   font-size: 0.75rem;
   margin: 20px;
+  padding: 10px;
 }
 
 input:-webkit-autofill,

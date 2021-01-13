@@ -23,10 +23,20 @@
     </section>
     <section>
         <div id="today" class="today">
+            <h2>The Current Weather</h2>
             <p>The current temperature in <span id="currentZipCode" class="currentZipCode"></span> is <span id="currentTemp" class="currentTemp"></span>°F. <br> It feels like <span id="feelsLike"></span>°F.</p>
-            <p class="weatherImage"><img id="weatherImage" src="" alt=""><span id="weatherDescription"></span></p>
+            <p class="weatherImage"><img id="weatherImage" src="" alt="Weather Icon for today"><span id="weatherDescription"></span></p>
         </div>
-        <div id="tomorrow" class="tomorrow"></div>
+        <div id="forecast" class="today">
+            <h3>Forecast for the next 5 days...</h3>
+            <div id="icons" class="forecast">
+                <div><span id="day1"></span>°F<img id="forecastWeatherImage1" src="" alt="Weather Icon for the forecast"></div>
+                <div><span id="day2"></span>°F<img id="forecastWeatherImage2" src="" alt="Weather Icon for the forecast"></div>
+                <div><span id="day3"></span>°F<img id="forecastWeatherImage3" src="" alt="Weather Icon for the forecast"></div>
+                <div><span id="day4"></span>°F<img id="forecastWeatherImage4" src="" alt="Weather Icon for the forecast"></div>
+                <div><span id="day5"></span>°F<img id="forecastWeatherImage5" src="" alt="Weather Icon for the forecast"></div>
+            </div>
+        </div>
     </section>
     <footer>
         <section>
