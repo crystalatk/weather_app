@@ -159,7 +159,7 @@ select:-webkit-autofill:focus {
 .overlay {
   background-color: rgba(18, 28, 52, 0.65);
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -179,10 +179,7 @@ select:-webkit-autofill:focus {
   display: block;
   font-size: 1.2rem;
   margin: auto;
-  position: fixed;
-  top: 50%;
-  left: 10%;
-  right: auto;
+  position: relative;
   padding: 16px;
   height: 200px;
   width: 300px;
