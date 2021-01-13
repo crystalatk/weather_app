@@ -14,6 +14,7 @@ function eventListener (button, selector) {
         }
     });
 }
+
 const getWeatherSelector = '#zipCode';
 const weatherButton = document.querySelector('#getWeatherButton');
 eventListener(weatherButton, getWeatherSelector);
@@ -22,8 +23,7 @@ const getFooterSelector = '#zipCodeFooter';
 const footerButton = document.querySelector('#getWeatherButtonFooter');
 eventListener(footerButton, getFooterSelector);
 
-const showModal = document.querySelector('#showModal');
-const closeModal = document.querySelector('#closeModal');
+
 
 function toggleModal() {
     const modalOverlay = document.querySelector("#overlay");
@@ -57,6 +57,7 @@ function getWeather(zipCode) {
     .catch(function (error) {
         console.log(error);
         toggleModal();
+        const closeModal = document.querySelector('#closeModal');
         closeModal.addEventListener("click", toggleModal);
     });
 }

@@ -179,10 +179,13 @@ select:-webkit-autofill:focus {
   display: block;
   font-size: 1.2rem;
   margin: auto;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  right: auto;
   padding: 16px;
   height: 200px;
-  width: 400px;
+  width: 300px;
 }
 
 .modal .close {
@@ -203,8 +206,11 @@ select:-webkit-autofill:focus {
   font-family: "Special Elite", cursive;
   font-size: 0.9rem;
 }
-/* @media screen and (min-width: 320px) {
-  header {
-    font-size: 2.5rem;
+
+@media screen and (min-width: 600px) {
+  .modal {
+    position: relative;
+    top: auto;
+    left: auto;
   }
-} */
+}
