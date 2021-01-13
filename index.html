@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bangers&family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body class="wrapper">
+    <header>
+        <h1>The Weather Today is....</h1>
+    </header>
+    <section id="locationLabel">
+        <form action="#" method="GET">
+            <label>
+                <span>Where in the world are you???</span>
+                <span class="inline"><input type="text" id="zipCode" placeholder="zip code..." name="zipCode" />
+                <button type="submit" id="getWeatherButton">Go</button></span> 
+            </label>
+        </form>
+    </section>
+    <section>
+        <div id="today" class="today">
+            <p>The current temperature in <span id="currentZipCode" class="currentZipCode"></span> is <span id="currentTemp" class="currentTemp"></span>°F. <br> It feels like <span id="feelsLike"></span>°F.</p>
+            <p class="weatherImage"><img id="weatherImage" src="" alt=""><span id="weatherDescription"></span></p>
+        </div>
+        <div id="tomorrow" class="tomorrow"></div>
+    </section>
+    <footer>
+        <section>
+            <form action="#" method="GET" id="footer" class="today">
+                <label class="footer">
+                    <span>Going somewhere else?</span>
+                    <span class="inline"><input type="text" id="zipCodeFooter" placeholder="zip code..." name="zipCode" />
+                    <button type="submit" id="getWeatherButtonFooter">Go</button></span>
+                </label>
+            </form>
+        </section>
+    </footer>
+</body>
+<script src="scripts/scripts.js"></script>
+<script src="scripts/get.js"></script>
+</html>

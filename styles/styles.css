@@ -1,0 +1,135 @@
+/* font-family: "Amatic SC", cursive;
+font-family: "Bangers", cursive;
+font-family: "Permanent Marker", cursive;
+font-family: "Special Elite", cursive; */
+
+html {
+  color: #ddbda6;
+  font-family: "Special Elite", cursive;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #0e1c36;
+  color: #ddbda6;
+  display: flex;
+  flex-direction: column;
+  font-family: "Amatic SC", cursive;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+header {
+  color: #77a3cf;
+  font-size: 2.5rem;
+  margin-top: 50%;
+}
+
+header h1 {
+  margin: 10px;
+}
+
+section {
+  font-family: "Special Elite", cursive;
+  line-height: 1.25rem;
+  margin: 20px auto auto;
+  padding: 5px;
+  width: 100%;
+}
+
+input {
+  background-color: #77a3cf;
+  border-radius: 40px;
+  border-style: none;
+  border-width: 0px;
+  font-family: "Special Elite", cursive;
+  line-height: 1.2rem;
+  padding-top: 5px;
+  text-align: center;
+}
+
+::placeholder {
+  color: #0e1c36;
+  font-family: "Special Elite", cursive;
+  text-align: center;
+}
+
+button {
+  align-content: center;
+  align-items: center;
+  background-color: #61e786;
+  border: #846c5b;
+  border-radius: 20px;
+  color: #0e1c36;
+  font-family: "Special Elite", cursive;
+  padding: 3px;
+}
+
+.today {
+  display: none;
+}
+
+.visible {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px 10px;
+  place-content: center;
+  grid-auto-flow: column; */
+}
+
+.weatherImage {
+  margin: 0px;
+}
+
+.inline {
+  display: inline-block;
+  /* width: fit-content; */
+}
+
+#footer {
+  text-align: center;
+  font-size: 0.75rem;
+  margin: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-style: none;
+  padding-top: 5px;
+  -webkit-text-fill-color: #0e1c36;
+  -webkit-box-shadow: 0 0 0px 1000px #77a3cf inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* @media screen and (min-width: 320px) {
+  header {
+    font-size: 2.5rem;
+  }
+} */
