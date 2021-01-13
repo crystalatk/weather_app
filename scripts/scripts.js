@@ -8,30 +8,27 @@ function eventListener (button, selector) {
             getWeather(zipCode.value);
             getForecast(zipCode.value);
         }
+        else {
+            toggleModal();
+            closeModal.addEventListener("click", toggleModal);
+        }
     });
 }
 const getWeatherSelector = '#zipCode';
 const weatherButton = document.querySelector('#getWeatherButton');
 eventListener(weatherButton, getWeatherSelector);
-// getWeatherButton.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     const zipCode = document.querySelector('#zipCode');
-//     if (zipCode.value !== "") {
-//         getWeather(zipCode.value);
-//         getForecast(zipCode.value);
-//     }
-// });
+
 const getFooterSelector = '#zipCodeFooter';
 const footerButton = document.querySelector('#getWeatherButtonFooter');
 eventListener(footerButton, getFooterSelector);
-// footerButton.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     const zipCode = document.querySelector('#zipCodeFooter');
-//     if (zipCode.value !== "") {
-//         getWeather(zipCode.value);
-//         getForecast(zipCode.value);
-//     }
-// })
+
+const showModal = document.querySelector('#showModal');
+const closeModal = document.querySelector('#closeModal');
+
+function toggleModal() {
+    const modalOverlay = document.querySelector("#overlay");
+    modalOverlay.classList.toggle("front");
+}
 
 function getWeather(zipCode) {
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=e40dbbedb9e16e2dc4ee18aa1f6da998&units=imperial`;
@@ -59,6 +56,8 @@ function getWeather(zipCode) {
     })
     .catch(function (error) {
         console.log(error);
+        toggleModal();
+        closeModal.addEventListener("click", toggleModal);
     });
 }
 
