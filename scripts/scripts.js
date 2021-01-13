@@ -1,5 +1,6 @@
 'use strict'
 
+
 function toggleModal() {
     const modalOverlay = document.querySelector("#overlay");
     modalOverlay.classList.toggle("front");
@@ -38,7 +39,7 @@ eventListener(footerButton, getFooterSelector);
 
 
 function getWeather(zipCode) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=e40dbbedb9e16e2dc4ee18aa1f6da998&units=imperial`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}&units=imperial`;
     get(url).then(function (response) {
         const currTemp = Math.round(response.main.temp);
         const spanCurrentTemp = document.querySelector('#currentTemp');
@@ -70,7 +71,7 @@ function getWeather(zipCode) {
 }
 
 function getForecast(zipCode) {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},us&appid=e40dbbedb9e16e2dc4ee18aa1f6da998&units=imperial`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},us&appid=${apiKey}&units=imperial`;
     get(url).then(function (response) {
         for (let i = 0; i < 5; i++) {
             const forecastTemp = Math.round(response.list[`${i}`].main.temp);
