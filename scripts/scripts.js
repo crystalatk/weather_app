@@ -1,5 +1,17 @@
 'use strict'
 
+function toggleModal() {
+    const modalOverlay = document.querySelector("#overlay");
+    modalOverlay.classList.toggle("front");
+}
+
+function clearInput() {
+    const inputValues = document.querySelectorAll('input');
+    for (let i = 0; i < inputValues.length; i++) {
+        inputValues[i].value = "";
+    }
+}
+
 function eventListener (button, selector) {
     button.addEventListener('click', function (event) {
         event.preventDefault();
@@ -12,6 +24,7 @@ function eventListener (button, selector) {
             toggleModal();
             closeModal.addEventListener("click", toggleModal);
         }
+        clearInput()
     });
 }
 
@@ -23,12 +36,6 @@ const getFooterSelector = '#zipCodeFooter';
 const footerButton = document.querySelector('#getWeatherButtonFooter');
 eventListener(footerButton, getFooterSelector);
 
-
-
-function toggleModal() {
-    const modalOverlay = document.querySelector("#overlay");
-    modalOverlay.classList.toggle("front");
-}
 
 function getWeather(zipCode) {
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=e40dbbedb9e16e2dc4ee18aa1f6da998&units=imperial`;
