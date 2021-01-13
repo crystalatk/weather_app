@@ -7,9 +7,9 @@ function toggleModal() {
 
 function clearInput() {
     const inputValues = document.querySelectorAll('input');
-    for (let i = 0; i < inputValues.length; i++) {
-        inputValues[i].value = "";
-    }
+    inputValues.forEach (inputValue => {
+        inputValue.value = "";
+    })
 }
 
 function eventListener (button, selector) {
